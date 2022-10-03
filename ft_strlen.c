@@ -1,11 +1,13 @@
-intft_strlen(char*str)
-{
-inti;
+#include "libft.h"
 
-i = 0;
-while (str[i] != '\0')
+int ft_strlen(char*str)
 {
-i++;
-}
-return (i);
+    int i;
+    
+    i = 0;
+    while (str[i] != '\0')
+    {
+        i++;
+    }
+    return (i);
 }
