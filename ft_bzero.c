@@ -12,13 +12,13 @@ bzero() 関数は バイト列 s から始まる領域の先頭 n バイトを �
 
 void    *ft_memset(void *s, int c, size_t n)
 {
-    size_t i;
+    char *d;
 
-    i = 0;
-    while (i < n)
+    d = (char *)s;
+    while (n--)
     {
-        ((unsigened char *)s)[i]　= c;
-        i++;
+        *d = c;
+        d++;
     }
     return (s);
 }

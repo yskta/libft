@@ -1,5 +1,7 @@
 /*
-memset() は s で示されるメモリー領域の先頭から n バイトを c で埋める。  
+memset() は s で示されるメモリー領域の先頭から n バイトを c で埋める。 
+先頭から2バイト進めた位置に「１」を3バイト書き込む
+    memset(buf+2,'1',3);
 memset() は s へのポインターを返す。  
 void *memset(void *s, int c, size_t n);
 */
@@ -8,13 +10,13 @@ void *memset(void *s, int c, size_t n);
 
 void    *ft_memset(void *s, int c, size_t n)
 {
-    size_t i;
+    char *d;
 
-    i = 0;
-    while (i < n)
+    d = (char *)s;
+    while (n--)
     {
-        ((unsigened char *)s)[i]　= c;
-        i++;
+        *d = c;
+        d++;
     }
     return (s);
 }
