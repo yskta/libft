@@ -13,45 +13,49 @@ memmove() は dest へのポインターを返す。
 
 #include "libft.h"
 
-void *ft_memcpy(void *dest, const void *src, size_t n);
+/*
+void    *ft_memcpy(void *dest, const void *src, size_t n)
 {
     size_t  i;
-    unsigned char *destc;
-    unsigned char *srcc;
+    unsigned char *udest;
+    unsigned char *usrc;
 
     if (dest == NULL && src == NULL)
         return (NULL);
     i = 0;
-    destc = (unsigned char *)dest;
-    srcc = (unsigned char *)src;
+    udest = (unsigned char *)dest;
+    usrc = (unsigned char *)src;
     while (i < n)
     {
-        destc[i] = srcc[i];
+        udest[i] = usrc[i];
         i++;
     }
     return (dest);
 }
+*/
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t			i;
-	unsigned char	*destc;
-	unsigned char	*srcc;
+	unsigned char	*udest;
+	unsigned char	*usrc;
 
-	if ((dst == NULL) && (src == NULL))
+	if ((dest == NULL) && (src == NULL))
 		return (NULL);
-	destc = (unsigned char *)dest;
-	srcc = (unsigned char *)src;
-	i = 1;
-	if (srcc < destc)
+	udest = (unsigned char *)dest;
+	usrc = (unsigned char *)src;
+
+	/* destはコピー先 srcはコピー元*/
+	if (usrc < udest) /*コピー先の先端部分が重なっている場合、最後からコピー*/
 	{
-		while (i <= len)
-		{
-			destc[len - i] = srcc[len - i];
-			i++;
-		}
+		usrc += n;
+		udest += n;
+		while (n--)
+			*--udest = *--usrc;
 	}
-	else
-		ft_memcpy(dstc, srcc, len);
+	else if (usrc > udest) /*コピー先の最終部分が重なっている場合、最初からコピー*/
+	{
+		while (n--)
+			*udest = *usrc;
+	}
 	return (dest);
 }

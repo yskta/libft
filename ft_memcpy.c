@@ -11,17 +11,17 @@ memcpy() は dest へのポインターを返す。
 void    *ft_memcpy(void *dest, const void *src, size_t n)
 {
     size_t  i;
-    unsigned char *destc;
-    unsigned char *srcc;
+    unsigned char *udest;
+    unsigned char *usrc;
 
     if (dest == NULL && src == NULL)
         return (NULL);
     i = 0;
-    destc = (unsigned char *)dest;
-    srcc = (unsigned char *)src;
+    udest = (unsigned char *)dest;
+    usrc = (unsigned char *)src;
     while (i < n)
     {
-        destc[i] = srcc[i];
+        udest[i] = usrc[i];
         i++;
     }
     return (dest);
