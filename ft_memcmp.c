@@ -9,7 +9,7 @@ memcmp() 関数は、メモリー領域 s1 とs2 の最初の n バイトを比�
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	i;
-
+	
 	i = 0;
 	while (i < n)
 	{
