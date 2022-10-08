@@ -10,8 +10,8 @@ s2 が空の文字列のとき、 s1 を返し、 s2 が s1 がない場合は�
 
 要はlenの数以内で完全一致s1の中にs2と完全一致する箇所があればその重なり始めの箇所をポインタで返す
 */
-
-
+#include <string.h>
+#include <stdio.h>
 #include "libft.h"
 
 char	*ft_strnstr(const char *s1, const char *s2, size_t len)
@@ -34,4 +34,22 @@ char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 		i++;
 	}
 	return (NULL);
+}
+
+int main(void)
+{
+    printf("result of ft_strnstr\n");
+    char test1[20] = "abcdefghijk";
+    char test2[20] = "defgh";
+    char *p;
+    p = ft_strnstr(test1, test2, 10);
+    printf("検索文字が見つかった場所から表示→%s\n", p);
+    printf("====================\n");
+    printf("result of strnstr\n");
+    char test3[20] = "abcdefghijk";
+    char test4[20] = "defgh";
+    char *q;
+    q = strnstr(test3, test4, 10);
+    printf("検索文字が見つかった場所から表示→%s\n", q);
+    return 0;
 }

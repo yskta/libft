@@ -4,6 +4,8 @@ char *strrchr(const char *s, int c);
 strrchr() 関数は、文字列 s 中に最後に文字 c が現れた位置へのポインターを返す。
 strchrのreverse version
 */
+#include <string.h>
+#include <stdio.h>
 #include "libft.h"
 
 size_t ft_strlen(const char *str)
@@ -34,4 +36,20 @@ char	*ft_strrchr(const char *s, int c)
 			return ((char *)(&s[len]));
 	}
 	return (NULL);
+}
+
+int main(void)
+{
+    printf("result of ft_strrchr\n");
+    char test1[20] = "abcdefghijk";
+    char *p;
+    p = ft_strrchr(test1,'f');
+    printf("検索文字が見つかった場所から表示→%s\n", p);
+    printf("====================\n");
+    printf("result of strrchr\n");
+    char test2[20] = "abcdefghijk";
+    char *q;
+    q = strrchr(test2,'f');
+    printf("検索文字が見つかった場所から表示→%s\n", q);
+    return 0;
 }

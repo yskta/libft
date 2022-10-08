@@ -10,7 +10,8 @@ memmove() は、メモリー領域 src の先頭 n バイトを メモリー領�
 
 memmove() は dest へのポインターを返す。  
 */
-
+#include <stdio.h>
+#include <string.h>
 #include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
@@ -38,3 +39,21 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
+
+int main(void)
+{
+    printf("result of ft_memmove\n");
+    char buf1[] = "ABCDDEFG";
+    char buf2[] = "123456789";
+    ft_memmove(buf1, buf2, 3);
+    printf("%s\n", buf1);
+
+    printf("====================\n");
+    printf("result of memmove\n");
+    char str1[] = "ABCDDEFG";
+    char str2[] = "123456789";
+    memmove(str1,str2,3);
+    printf("%s\n", str1);
+    return (0);
+}
+
