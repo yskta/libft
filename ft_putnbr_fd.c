@@ -6,7 +6,6 @@ Outputs the integer ’n’ to the given file
 descriptor.
 再帰関数で実装
 */
-
 #include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
