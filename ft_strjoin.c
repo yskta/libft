@@ -5,10 +5,7 @@ Parameters s1: The prefix string. 接頭辞の文字列。
 s2: The suffix string.接尾辞の文字列
 Return value The new string.
 NULL if the allocation fails.
-External functs. malloc
-Description Allocates (with malloc(3)) and returns a new
-string, which is the result of the concatenation
-of ’s1’ and ’s2’.
+
 */
 #include "libft.h"
 
@@ -22,70 +19,44 @@ size_t ft_strlen(const char *str)
     return (i);
 }
 
-char	*ft_strcpy(char *dest, char *src)
+size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {
-	int	i;
+	size_t	i;
+	size_t	count;
 
 	i = 0;
-	while (src[i] != '\0')
+	count = ft_strlen(src);
+
+	if (n != 0)
 	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
-}
-
-int	cntword(int size, char **strs)
-{
-	int	i;
-	int	wordcount;
-
-	i = 1;
-	wordcount = 0;
-	while (i <= size)
-	{
-		wordcount += ft_strlen(*strs);
-		strs++;
-		i++;
-	}
-	return (wordcount);
-}
-
-void	array_init(char *str)
-{
-	while (*str != '\0')
-	{
-		*str = 0;
-		str++;
-	}
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
-{
-	char	*str;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	if (size == 0)
-		return ((char *)malloc(sizeof(char) * 1));
-	str = (char *)malloc(sizeof(char) * cntword(size, strs) \
-		   	 + (size - 1) * ft_strlen(sep));
-	if (str == NULL)
-		return (NULL);
-	array_init(str);
-	while (j < size)
-	{
-		ft_strcpy(&str[i], strs[j]);
-		i += ft_strlen(strs[j]);
-		j++;
-		if (j != size)
+		while (src[i] != '\0' && i < (n - 1))
 		{
-			ft_strcpy(&str[i], sep);
-			i += ft_strlen(sep);
+			dest[i] = src[i];
+			i++;
 		}
-	}
-	return (str);
+		dest[i] = '\0';
+	}	
+	return (count);
+}
+
+char    *ft_strjoin(char const *s1, char const *s2)
+{
+    char    *p;
+    size_t  len_s1;
+    size_t  len_s2;
+
+    len_s1 = 0;
+    len_s2 = 0;
+    if (s1 == NULL && s2 == NULL)
+        return(NULL);
+    if (s1 != NULL)
+        len_s1 = ft_strlen(s1);
+    if (s2 != NULL)
+        len_s2 = ft_strlen(s2);
+    p = (char *)malloc(sizeof(char) * (len_s1 + len_s2 + 1)); /*最後にヌル終端を*/
+    if (p == NULL)
+        return (NULL);
+    ft_strlcpy(p, s1, len_s1 + 1);
+	ft_strlcpy(p + len_s1, s2, len_s2 + 1);
+    return (p);
 }
