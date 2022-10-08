@@ -1,13 +1,19 @@
+/*
+void ft_putstr_fd(char *s, int fd);
+s: The string to output.
+fd: The file descriptor on which to write.
+*/
+
 #include <unistd.h>
 
-voidft_putstr(char *str)
+void	ft_putstr_fd(char *s, int fd)
 {
     int i;
     
     i = 0;
-    while (str[i] != '\0')
+    while (s[i] != '\0')
     {
-        write(1, &str[i], 1);
+        write(fd, &s[i], 1);
         i++;
     }
 }
