@@ -25,5 +25,7 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int	    ft_memcmp(const void *s1, const void *s2, size_t n);
 char	*ft_strnstr(const char *s1, const char *s2, size_t len);
 int		ft_atoi(const char *nptr);
+char	*ft_strdup(const char *src);
+void	*ft_calloc(size_t number, size_t size);
 
 #endif
