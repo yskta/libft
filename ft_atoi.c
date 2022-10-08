@@ -1,39 +1,44 @@
 #include "libft.h"
-int	ft_checkerr(int sign);
 
-int	ft_atoi(const char *str)
+/*文字列の先頭に、 半角スペースやtab や Enterの改行文字の空白文字並びがある場合、それら無視しする繰り返しの処理します。*/
+int ft_isspace(int c)
 {
-	size_t	i;
-	int		sign;
-	long	total;
-	long	prev;
-
-	i = 0;
-	sign = 1;
-	total = 0;
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == 32)
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			sign *= (-1);
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		prev = total;
-		total = total * 10 + (str[i] - '0');
-		if (total < prev)
-			return (ft_checkerr(sign));
-		i++;
-	}
-	return (total * sign);
-}
-
-int	ft_checkerr(int sign)
-{
-	if (sign > 0)
-		return (-1);
+	if ((9 <= c && c <= 13) || c == 32)
+		return (1);
 	else
 		return (0);
+}
+
+int ft_isdigit(int c)
+{
+	if ( 48 <= c && c <= 57)
+		return (1);
+	else
+		return (0);
+}
+
+int			ft_atoi(const char *nptr)
+{
+	size_t	n;
+	int		minus_flag;
+
+	n = 0;
+	minus_flag = 0;
+	while (ft_isspace(*nptr) == 1)
+		nptr++;
+	if (*nptr == '-')
+	{
+		minus_flag = 1;
+		nptr++;
+	}
+	else if (*nptr == '+')
+		nptr++;
+	while (ft_isdigit(*nptr)== 1)
+	{
+		n = n * 10 + (*nptr - '0');
+		nptr++;
+	}
+	if (minus_flag == 1)
+		n *= -1;
+	return ((int)n);
 }
