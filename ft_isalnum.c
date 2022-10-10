@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <ctype.h>
+//#include <stdio.h>
+//#include <ctype.h>
 #include "libft.h"
 
 int ft_isalpha(int c)
@@ -26,6 +26,7 @@ int	ft_isalnum(int c)
 		return (0);
 }
 
+/*
 int main(void)
 {
     printf("＜result of ft_isalnum＞\n");
@@ -41,6 +42,7 @@ int main(void)
     printf("アスキーコードの1：%d\n", isalnum(1));
     return (0);
 }
+*/
 
 
 

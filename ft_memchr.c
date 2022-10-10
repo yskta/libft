@@ -4,8 +4,8 @@ void *memchr(const void *s, int c, size_t n);
 memchr() 関数は、ポインター s が指し示すメモリー領域の先頭の n バイトから最初に登場する文字 c を探す。 
 c と s が指し示すメモリー領域の各バイトは両方とも unsigned char と解釈される。
 */
-#include <string.h>
-#include <stdio.h>
+//#include <string.h>
+//#include <stdio.h>
 #include "libft.h"
 
 void	*ft_memchr(const void *s, int c, size_t n)
@@ -26,6 +26,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	return (NULL);
 }
 
+/*
 int main(void)
 {
     printf("result of ft_memchr\n");
@@ -52,3 +53,4 @@ int main(void)
         printf("検索文字が見つかりませんでした。");
     return 0;
 }
+*/

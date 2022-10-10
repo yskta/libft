@@ -3,8 +3,8 @@
 int memcmp(const void *s1, const void *s2, size_t n);
 memcmp() 関数は、メモリー領域 s1 とs2 の最初の n バイトを比較する (各バイトは unsigned char として解釈される)。  
 */
-#include <string.h>
-#include <stdio.h>
+//#include <string.h>
+//#include <stdio.h>
 #include "libft.h"
 
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
@@ -22,6 +22,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	return (0);
 }
 
+/*
 int main(void)
 {
     printf("result of ft_memcmp\n");
@@ -48,3 +49,4 @@ int main(void)
     else
         printf("一致していません。比較結果：%d\n", memcmp(buf,buf2,5));
 }
+*/

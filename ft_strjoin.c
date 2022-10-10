@@ -6,8 +6,8 @@ s2: The suffix string.接尾辞の文字列
 Return value The new string.
 NULL if the allocation fails.
 */
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+//#include <string.h>
 #include "libft.h"
 
 size_t ft_strlen(const char *str)
@@ -62,6 +62,7 @@ char    *ft_strjoin(char const *s1, char const *s2)
     return (p);
 }
 
+/*
 int main(void)
 {
     printf("<result of ft_strjoin>\n");
@@ -70,3 +71,4 @@ int main(void)
     printf("%s\n", ft_strjoin(s1, s2));
     return (0);
 }
+*/

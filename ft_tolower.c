@@ -1,5 +1,5 @@
-#include <ctype.h>
-#include <stdio.h>
+//#include <ctype.h>
+//#include <stdio.h>
 #include "libft.h"
 
 int ft_tolower(int c)
@@ -10,6 +10,7 @@ int ft_tolower(int c)
         return (c);
 }
 
+/*
 int main(void)
 {
     printf("result of ft_tolower\n");
@@ -23,3 +24,4 @@ int main(void)
     printf("Aを小文字に変換→%c\n",b);
     return (0);
 }
+*/

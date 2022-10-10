@@ -7,8 +7,8 @@ bzero - 値 0 のバイトで埋める
 bzero() 関数は バイト列 s から始まる領域の先頭 n バイトを 数値ゼロ (値が '\0' のバイト) で埋める。  
 返り値はなし
 */
-#include <stdio.h>
-#include <strings.h>
+//#include <stdio.h>
+//#include <strings.h>
 #include "libft.h"
 
 void    *ft_memset(void *s, int c, size_t n)
@@ -29,6 +29,7 @@ void    ft_bzero(void *s, size_t n)
     ft_memset(s, '\0', n);
 }
 
+/*
 int main(void)
 {
     printf("result of ft_bzero\n");
@@ -42,5 +43,6 @@ int main(void)
     printf("%s\n", str2);
     return (0);
 }
+*/
 
 

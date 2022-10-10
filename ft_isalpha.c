@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <ctype.h>
+//#include <stdio.h>
+//#include <ctype.h>
 #include "libft.h"
 
 int ft_isalpha(int c)
@@ -10,6 +10,7 @@ int ft_isalpha(int c)
         return (0);
 }
 
+/*
 int main(void)
 {
     printf("result of ft_isalpha\n");
@@ -25,3 +26,4 @@ int main(void)
     printf("1234567：%d\n", isalpha(1234567));
     return (0);
 }
+*/

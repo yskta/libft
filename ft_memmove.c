@@ -10,36 +10,57 @@ memmove() は、メモリー領域 src の先頭 n バイトを メモリー領�
 
 memmove() は dest へのポインターを返す。  
 */
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+//#include <string.h>
 #include "libft.h"
+
+void    *ft_memcpy(void *dest, const void *src, size_t n)
+{
+    size_t  i;
+    unsigned char *udest;
+    unsigned char *usrc;
+
+    if (dest == NULL && src == NULL)
+        return (NULL);
+    i = 0;
+    udest = (unsigned char *)dest;
+    usrc = (unsigned char *)src;
+    while (i < n)
+    {
+        udest[i] = usrc[i];
+        i++;
+    }
+    return (dest);
+}
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	unsigned char	*udest;
 	unsigned char	*usrc;
+	size_t			i;
 
 	if ((dest == NULL) && (src == NULL))
 		return (NULL);
 	udest = (unsigned char *)dest;
 	usrc = (unsigned char *)src;
+	i = 1;
 
-	/* destはコピー先 srcはコピー元*/
-	if (usrc < udest) /*コピー先の先端部分が重なっている場合、最後からコピー*/
+// destはコピー先 srcはコピー元
+	if (usrc < udest) //コピー先の先端部分が重なっている場合、最後からコピー
 	{
-		usrc += n;
-		udest += n;
-		while (n--)
-			*--udest = *--usrc;
+		while (i <= n)
+		{
+			udest[n - i] = usrc[n - i];
+			i++;
+		}
+		return (dest);
 	}
-	else if (usrc > udest) /*コピー先の最終部分が重なっている場合、最初からコピー*/
-	{
-		while (n--)
-			*udest = *usrc;
-	}
+	else //コピー先の最終部分が重なっている場合、最初からコピー→memcpyで良い
+		ft_memcpy(dest, src, n);
 	return (dest);
 }
 
+/*
 int main(void)
 {
     printf("result of ft_memmove\n");
@@ -56,4 +77,5 @@ int main(void)
     printf("%s\n", str1);
     return (0);
 }
+*/
 

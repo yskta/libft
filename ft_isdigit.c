@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <ctype.h>
+//#include <stdio.h>
+//#include <ctype.h>
 #include "libft.h"
 
 int ft_isdigit(int c)
@@ -10,6 +10,7 @@ int ft_isdigit(int c)
 		return (0);
 }
 
+/*
 int main(void)
 {
     printf("＜result of ft_isdigit＞\n");
@@ -23,3 +24,4 @@ int main(void)
     printf("a：%d\n", isdigit('a'));
     return (0);
 }
+*/

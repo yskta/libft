@@ -1,8 +1,8 @@
 /*
 itoa() 関数は整数 n を文字ストリングに変換します。
 */
-#include <stdlib.h>
-#include <stdio.h>
+//#include <stdlib.h>
+//#include <stdio.h>
 #include "libft.h"
 int 	cntdigit(long int n);
 void	convert_int_to_char(long int n, char *num, int n_digit);
@@ -44,6 +44,7 @@ void	convert_int_to_char(long int n, char *num, int n_digit)
 	num[n_digit] = (n % 10) + '0';
 }
 
+/*
 int main(void)
 {
     printf("result of ft_itoa\n");
@@ -55,3 +56,4 @@ int main(void)
     printf("n3：%s\n", ft_itoa(n3));
     return 0;
 }
+*/

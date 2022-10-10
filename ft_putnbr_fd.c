@@ -6,7 +6,7 @@ Outputs the integer ’n’ to the given file
 descriptor.
 再帰関数で実装
 */
-#include <stdio.h>
+//#include <stdio.h>
 #include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
@@ -38,6 +38,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 }
 
+/*
 int main(void)
 {
     printf("<n1>\n-2147483648\n");
@@ -58,3 +59,4 @@ int main(void)
     printf("\n");
     return 0;
 }
+*/

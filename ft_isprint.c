@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <ctype.h>
+//#include <stdio.h>
+//#include <ctype.h>
 #include "libft.h"
 
 int ft_isprint(int c)
@@ -10,6 +10,7 @@ int ft_isprint(int c)
         return (0);
 }
 
+/*
 int main(void)
 {
     printf("＜result of ft_isprint＞\n");
@@ -25,3 +26,4 @@ int main(void)
     printf("アスキーコードの0：%d\n", isprint(0));
     return (0);
 }
+*/

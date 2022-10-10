@@ -3,8 +3,8 @@
 int strncmp(const char *s1, const char *s2, size_t n);
 strncmp() 関数は、s1 と s2 の最初の n バイトだけを比較する ことを除けば、strcmp()と同様である。  
 */
-#include <string.h>
-#include <stdio.h>
+//#include <string.h>
+//#include <stdio.h>
 #include "libft.h"
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
@@ -22,6 +22,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	return (*(unsigned char *)s1 - *(unsigned char *)s2);
 }
 
+/*
 int main(void)
 {
     printf("result of ft_strncmp\n");
@@ -74,3 +75,4 @@ int main(void)
     }
     return 0;
 }
+*/

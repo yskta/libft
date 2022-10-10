@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <ctype.h>
+//#include <stdio.h>
+//#include <ctype.h>
 #include "libft.h"
 
 int	ft_isascii(int c)
@@ -10,6 +10,7 @@ int	ft_isascii(int c)
 		return (0);
 }
 
+/*
 int main(void)
 {
     printf("result of ft_isalpha\n");
@@ -27,3 +28,4 @@ int main(void)
     printf("!：%d\n", isascii('!'));
     return (0);
 }
+*/

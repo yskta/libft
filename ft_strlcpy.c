@@ -5,8 +5,8 @@ destに複写された文字列の最後は、必ずNULL文字で終わる(サ�
 nは、destで確保されたバッファーのサイズのsizeofを格納するのが一般的な用法である。
 srcとdestが重なっていた場合の挙動は未定義である。
 */
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+//#include <string.h>
 #include "libft.h"
 
 size_t ft_strlen(const char *str)
@@ -39,6 +39,7 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 	return (count);
 }
 
+/*
 int main(void)
 {
     printf("result of ft_strlcpy\n");
@@ -54,3 +55,4 @@ int main(void)
     printf("%s\n", str1);
     return (0);
 }
+*/

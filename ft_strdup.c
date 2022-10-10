@@ -1,5 +1,5 @@
-#include <string.h>
-#include <stdio.h>
+//#include <string.h>
+//#include <stdio.h>
 #include "libft.h"
 
 size_t ft_strlen(const char *str)
@@ -36,6 +36,7 @@ char	*ft_strdup(const char *src)
 	return (ft_strcpy(dest, src));
 }
 
+/*
 int main(void)
 {
     printf("result of ft_strdup\n");
@@ -49,3 +50,4 @@ int main(void)
     printf("nptr2：%s\n", strdup(nptr2));
     return 0;
 }
+*/

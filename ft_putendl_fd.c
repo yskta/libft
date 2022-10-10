@@ -3,7 +3,7 @@ s: The string to output.
 fd: The file descriptor on which to write.
 putstrの最後に改行がついているver
 */
-#include <stdio.h>
+//#include <stdio.h>
 #include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)
@@ -29,6 +29,7 @@ void	ft_putendl_fd(char *s, int fd)
 	ft_putchar_fd('\n', fd);
 }
 
+/*
 int main(void)
 {
     char s[] = "abcdefg";
@@ -38,3 +39,4 @@ int main(void)
     printf("<check new line>\n");
     return 0;
 }
+*/

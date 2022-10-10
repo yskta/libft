@@ -1,5 +1,5 @@
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+//#include <string.h>
 #include "libft.h"
 
 size_t ft_strlen(const char *str)
@@ -12,6 +12,7 @@ size_t ft_strlen(const char *str)
     return (i);
 }
 
+/*
 int main(void)
 {
     printf("＜result of ft_strlen＞\n");
@@ -22,3 +23,4 @@ int main(void)
     printf("'%s' の長さは %lu バイトです。\n", buffer, strlen(buffer));
     return (0);
 }
+*/

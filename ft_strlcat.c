@@ -1,8 +1,8 @@
 /*
 ポインタsrcの指すアドレスから最大でsize - strlen(dst) - 1バイト文字列をdestの末尾に追記し、NULL文字で終わるようにする。
 */
-#include <stdio.h>
-#include <string.h>
+//#include <stdio.h>
+//#include <string.h>
 #include "libft.h"
 
 size_t ft_strlen(const char *str)
@@ -15,27 +15,40 @@ size_t ft_strlen(const char *str)
     return (i);
 }
 
-size_t	ft_strlcat(char *dest, const char *src, size_t size)
+size_t	ft_strlcpy(char *dest, const char *src, size_t n)
 {
-	size_t	dest_size;
-	size_t	src_size;
 	size_t	i;
+	size_t	count;
 
-	dest_size = ft_strlen((const char *)dest);
-	src_size = ft_strlen(src);
 	i = 0;
+	count = ft_strlen(src);
 
-	if (size <= dest_size)
-		return (size + src_size);
-	while (src[i] != '\0' && size - 1 > dest_size + i)
+	if (n != 0)
 	{
-		dest[dest_size +i] = src[i];
-		i++;
-	}
-	dest[dest_size + i] = '\0';
-	return (dest_size + src_size);
+		while (src[i] != '\0' && i < (n - 1))
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+	}	
+	return (count);
 }
 
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
+{
+	size_t	dest_len;
+	size_t	src_len;
+
+	dest_len = ft_strlen((const char *)dest);
+	src_len = ft_strlen(src);
+	if (size <= dest_len)
+		return (size + src_len);
+    ft_strlcpy(dest + dest_len, src, size - dest_len);
+	return (dest_len + src_len);
+}
+
+/*
 int main(void)
 {
     printf("result of ft_strlcat\n");
@@ -49,3 +62,4 @@ int main(void)
     printf("%lu\n", strlcat(str1, str2, 5));
     return (0);
 }
+*/
