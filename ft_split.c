@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:21:18 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/10 19:17:01 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/10/11 00:49:10 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,62 @@ INPUT を PREFIXaa, PREFIXab, ... という固定サイズのファイルに分�
 #include "libft.h"
 char **ft_split(char const *s, char c)
 {
-    char **str;
-    //mallocでサイズ確保
-    //splitする関数  
-    return (str);
+    char    **split_str;
+    size_t  split_cnt;
+    //単語数を数えてmallocでサイズ確保
+    if (s == NULL)
+        return (NULL);
+    split_cnt = ft_cnt(s, c);
+    split_str = (char **)malloc(sizeof(char *) * (split_cnt + 1));
+    if (split_str == NULL)
+        return (NULL);
+    //splitして配列に入れる関数
+    ft_split_str(s, c, split_str, split_cnt);
+    return (split_str);
 }
+
+//単語数を数える
+size_t  ft_cnt(const char *s, char c)
+{
+    size_t  count;
+    size_t  i;
+
+    count = 0;
+    i = 0;
+    while (s[i] != '\0')
+    {
+        if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
+            count++;
+        s++;
+    }
+    return(count);
+}
+//splitして配列に入れる関数
+//
+char **ft_split_str(char *s, char c, char **split_str, size_t split_cnt)
+{
+    size_t  i;
+    size_t  j;
+    size_t  cnt;
+
+    i = 0;
+    cnt = 0;
+    while (s[i] !=  '\0' && cnt < split_cnt)
+    {
+        if (s[i] != c)
+        {
+            j = i + 1;
+            while(s[j] != '\0' && s[j] != c)
+				j++;
+            split_str[cnt] = ft_substr(s, i, j - i);
+            split_str[cnt][j - i] = '\0';
+            cnt++;
+            i = j + 1;
+        }
+        else 
+            i++;
+    }
+    split_str[split_cnt] = NULL; //NULLはポインタ
+    return(split_str);
+}
+
