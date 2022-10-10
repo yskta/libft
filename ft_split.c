@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:21:18 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/10 18:29:47 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/10/10 19:17:01 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,14 @@ INPUT を PREFIXaa, PREFIXab, ... という固定サイズのファイルに分�
 ファイルの指定がない場合や FILE が - の場合, 標準入力から読み込みを行います。
 長いオプションで必須となっている引数は短いオプションでも必須です。
 # 戻り値　split("AAbbBBbbCC", "b")の場合{AA, BB, CC, NULL}
+# mallocで割り当て、sをcで区切った文字列を返します。配列はNULLポインタで終了します。
+分割後の文字列領域をmallocしている時にNULLが返った時は、それまで確保していた領域を全てfreeする。（機械判定は通るが人によっては減点対象）
 */
-
+#include "libft.h"
 char **ft_split(char const *s, char c)
 {
-    
+    char **str;
+    //mallocでサイズ確保
+    //splitする関数  
+    return (str);
 }

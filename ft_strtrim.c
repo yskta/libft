@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:22:51 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/10 18:24:24 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/10/10 18:38:50 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*ft_strtrim(char const *s1, char const *set)
         start++;
     size = ft_strlen((char *)s1);
     //終わりの位置を探す
-    while (ft_strchr(set, s1[size]) != NULL && s1[size] != 0)
+    while (ft_strchr(set, s1[size]) != NULL && size != 0)
         size--;
     //始まりの位置からsize-start文字数分の文字列を取り出す
     return (ft_substr(s1, start, size - start));
