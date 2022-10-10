@@ -19,28 +19,28 @@ int ft_isdigit(int c)
 		return (0);
 }
 
-int ft_atoi(const char *nptr)
+int ft_atoi(const char *str)
 {
 	size_t	n;
-	int		minus_flag;
+	int		flag;
 
 	n = 0;
-	minus_flag = 0;
-	while (ft_isspace(*nptr) == 1)
-		nptr++;
-	if (*nptr == '-')
+	flag = 0;
+	while (ft_isspace(*str) == 1)
+		str++;
+	if (*str == '-')
 	{
-		minus_flag = 1;
-		nptr++;
+		flag = 1;
+		str++;
 	}
-	else if (*nptr == '+')
-		nptr++;
-	while (ft_isdigit(*nptr)== 1)
+	else if (*str == '+')
+		str++;
+	while (ft_isdigit(*str)== 1)
 	{
-		n = n * 10 + (*nptr - '0');
-		nptr++;
+		n = n * 10 + (*str - '0');
+		str++;
 	}
-	if (minus_flag == 1)
+	if (flag == 1)
 		n *= -1;
 	return ((int)n);
 }

@@ -1,3 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/10/10 16:20:33 by yokitaga          #+#    #+#             */
+/*   Updated: 2022/10/10 16:20:35 by yokitaga         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
 /*
 memmove - メモリー領域をコピーする  
 #include <string.h>
@@ -44,8 +57,7 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	udest = (unsigned char *)dest;
 	usrc = (unsigned char *)src;
 	i = 1;
-
-// destはコピー先 srcはコピー元
+    // destはコピー先 srcはコピー元
 	if (usrc < udest) //コピー先の先端部分が重なっている場合、最後からコピー
 	{
 		while (i <= n)
