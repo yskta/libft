@@ -17,19 +17,19 @@ s2 が空の文字列のとき、 s1 を返し、 s2 が s1 がない場合は�
 char	*ft_strnstr(const char *s1, const char *s2, size_t len)
 {
 	size_t	i;
-	size_t	c;
+	size_t	j;
 
 	if (s2[0] == '\0')
 		return ((char *)s1);
 	i = 0;
 	while (s1[i] != '\0' && i < len)
 	{
-		c = 0;
-		while ((s1[i + c] == s2[c]) && (i + c) < len)
+		j = 0;
+		while ((s1[i + j] == s2[j]) && (i + j) < len)
 		{
-			if (s2[c + 1] == '\0')
-				return ((char *)(&s1[i]));
-			c++;
+			if (s2[j + 1] == '\0')
+				return ((char *)&s1[i]);
+			j++;
 		}
 		i++;
 	}
