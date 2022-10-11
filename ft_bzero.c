@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:16:37 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/10 16:16:55 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/10/11 16:40:20 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ bzero() 関数は バイト列 s から始まる領域の先頭 n バイトを �
 */
 //#include <stdio.h>
 //#include <strings.h>
-
 #include "libft.h"
 
-void    *ft_memset(void *s, int c, size_t n)
+void *ft_memset(void *s, int c, size_t n)
 {
     char *d;
 
@@ -37,11 +36,10 @@ void    *ft_memset(void *s, int c, size_t n)
     return (s);
 }
 
-void    ft_bzero(void *s, size_t n)
+void ft_bzero(void *s, size_t n)
 {
     ft_memset(s, '\0', n);
 }
-
 /*
 int main(void)
 {
@@ -57,5 +55,3 @@ int main(void)
     return (0);
 }
 */
-
-

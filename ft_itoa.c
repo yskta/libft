@@ -6,10 +6,9 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:19:51 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/10 16:19:52 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/10/11 16:25:47 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 /*
 itoa() 関数は整数 n を文字ストリングに変換します。
@@ -17,13 +16,14 @@ itoa() 関数は整数 n を文字ストリングに変換します。
 //#include <stdlib.h>
 //#include <stdio.h>
 #include "libft.h"
-int 	cntdigit(long int n);
+
+int		cntdigit(long int n);
 void	convert_int_to_char(long int n, char *num, int n_digit);
 
 char	*ft_itoa(int n)
 {
-	char *num;
-	int	n_digit;
+	char	*num;
+	int		n_digit;
 
 	n_digit = cntdigit((long int)n);
 	num = (char *)malloc(sizeof(char) * (n_digit + 1));
@@ -35,11 +35,11 @@ char	*ft_itoa(int n)
 	return (num);
 }
 
-int 	cntdigit(long int n)
+int	cntdigit(long int n)
 {
 	if (n < 0)
 		return (1 + cntdigit(-n));
-	if ((n / 10 ) == 0)
+	if ((n / 10) == 0)
 		return (1);
 	else
 		return (1 + cntdigit(n / 10));

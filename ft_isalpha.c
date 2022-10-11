@@ -6,10 +6,9 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:19:03 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/10 16:19:04 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/10/11 17:03:36 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 //#include <stdio.h>
 //#include <ctype.h>
@@ -22,7 +21,6 @@ int ft_isalpha(int c)
     else
         return (0);
 }
-
 /*
 int main(void)
 {

@@ -6,23 +6,20 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:23:00 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/10 16:23:01 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/10/11 16:22:53 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-//#include <ctype.h>
 //#include <stdio.h>
 #include "libft.h"
 
 int ft_tolower(int c)
 {
-    if (65 <= c && c <= 90)
+    if  (65 <= c && c <= 90)
         return (c + 32);
     else
         return (c);
 }
-
 /*
 int main(void)
 {
