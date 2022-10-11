@@ -6,7 +6,7 @@
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:21:18 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/11 00:49:10 by yokitaga         ###   ########.fr       */
+/*   Updated: 2022/10/11 15:58:03 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ INPUT を PREFIXaa, PREFIXab, ... という固定サイズのファイルに分�
 分割後の文字列領域をmallocしている時にNULLが返った時は、それまで確保していた領域を全てfreeする。（機械判定は通るが人によっては減点対象）
 */
 #include "libft.h"
+size_t  ft_cnt(const char *s, char c);
+char **ft_split_str(const char *s, char c, char **split_str, size_t split_cnt);
+
 char **ft_split(char const *s, char c)
 {
     char    **split_str;
@@ -55,7 +58,8 @@ size_t  ft_cnt(const char *s, char c)
 }
 //splitして配列に入れる関数
 //
-char **ft_split_str(char *s, char c, char **split_str, size_t split_cnt)
+char **ft_split_str(const 
+char *s, char c, char **split_str, size_t split_cnt)
 {
     size_t  i;
     size_t  j;
