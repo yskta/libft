@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/19 19:38:29 by yokitaga          #+#    #+#              #
+#    Updated: 2022/10/19 19:38:43 by yokitaga         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME		= libft.a 
 SRCS		= ft_atoi.c ft_bzero.c ft_calloc.c \
 				ft_isalnum.c ft_isalpha.c ft_isascii.c \
@@ -10,7 +22,7 @@ SRCS		= ft_atoi.c ft_bzero.c ft_calloc.c \
 				ft_strlcpy.c ft_strlen.c ft_strmapi.c \
 				ft_strncmp.c ft_strnstr.c ft_strrchr.c  \
 				ft_strtrim.c ft_substr.c ft_tolower.c ft_toupper.c 
-CC			= gcc
+CC			= cc
 CFLAGS		= -Wall -Wextra -Werror
 AR			= ar rcs
 OBJS		= $(SRCS:%.c=%.o)
@@ -29,4 +41,4 @@ fclean:	clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re 
+.PHONY:		all clean fclean re

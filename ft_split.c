@@ -5,84 +5,91 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 16:21:18 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/11 15:58:03 by yokitaga         ###   ########.fr       */
+/*   Created: 2022/10/19 19:46:05 by yokitaga          #+#    #+#             */
+/*   Updated: 2022/10/19 20:37:09 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-/*
-ファイルを複数に分割する  
-INPUT を PREFIXaa, PREFIXab, ... という固定サイズのファイルに分割します。 デフォルトのサイズは 1000 行です。デフォルトの PREFIX は 'x' です。
-ファイルの指定がない場合や FILE が - の場合, 標準入力から読み込みを行います。
-長いオプションで必須となっている引数は短いオプションでも必須です。
-# 戻り値　split("AAbbBBbbCC", "b")の場合{AA, BB, CC, NULL}
-# mallocで割り当て、sをcで区切った文字列を返します。配列はNULLポインタで終了します。
-分割後の文字列領域をmallocしている時にNULLが返った時は、それまで確保していた領域を全てfreeする。（機械判定は通るが人によっては減点対象）
-*/
 #include "libft.h"
-size_t  ft_cnt(const char *s, char c);
-char **ft_split_str(const char *s, char c, char **split_str, size_t split_cnt);
 
-char **ft_split(char const *s, char c)
+static size_t	ft_cnt(const char *s, char c);
+static char		**ft_split_str(const char *s, char c, \
+			char **split_str, size_t split_cnt);
+static char		**ft_free(char **list);
+
+static size_t	ft_cnt(const char *s, char c)
 {
-    char    **split_str;
-    size_t  split_cnt;
-    //単語数を数えてmallocでサイズ確保
-    if (s == NULL)
-        return (NULL);
-    split_cnt = ft_cnt(s, c);
-    split_str = (char **)malloc(sizeof(char *) * (split_cnt + 1));
-    if (split_str == NULL)
-        return (NULL);
-    //splitして配列に入れる関数
-    ft_split_str(s, c, split_str, split_cnt);
-    return (split_str);
+	size_t	cnt;
+
+	cnt = 0;
+	while (*s != '\0')
+	{
+		if (*(char *)s == c)
+			s++;
+		else
+		{
+			while (*s != '\0' && *(char *)s != c)
+				s++;
+			cnt++;
+		}
+	}
+	return (cnt);
 }
 
-//単語数を数える
-size_t  ft_cnt(const char *s, char c)
+char	**ft_split_str(const char *s, char c, \
+		char **split_str, size_t split_cnt)
 {
-    size_t  count;
-    size_t  i;
+	size_t	i;
+	size_t	j;
+	size_t	index;
 
-    count = 0;
-    i = 0;
-    while (s[i] != '\0')
-    {
-        if (s[i] == c && s[i + 1] != c && s[i + 1] != '\0')
-            count++;
-        s++;
-    }
-    return(count);
-}
-//splitして配列に入れる関数
-//
-char **ft_split_str(const 
-char *s, char c, char **split_str, size_t split_cnt)
-{
-    size_t  i;
-    size_t  j;
-    size_t  cnt;
-
-    i = 0;
-    cnt = 0;
-    while (s[i] !=  '\0' && cnt < split_cnt)
-    {
-        if (s[i] != c)
-        {
-            j = i + 1;
-            while(s[j] != '\0' && s[j] != c)
+	i = 0;
+	index = 0;
+	while (s[i] != '\0' && index < split_cnt)
+	{
+		if (s[i] != c)
+		{
+			j = i + 1;
+			while (s[j] != '\0' && s[j] != c)
 				j++;
-            split_str[cnt] = ft_substr(s, i, j - i);
-            split_str[cnt][j - i] = '\0';
-            cnt++;
-            i = j + 1;
-        }
-        else 
-            i++;
-    }
-    split_str[split_cnt] = NULL; //NULLはポインタ
-    return(split_str);
+			split_str[index] = ft_substr(s, i, j - i);
+			if (split_str[index] == NULL)
+				return (ft_free(split_str));
+			index++;
+			i = j + 1;
+		}
+		if (s[i] == c)
+			i++;
+	}
+	split_str[split_cnt] = NULL;
+	return (split_str);
 }
 
+static char	**ft_free(char **list)
+{
+	size_t	i;
+
+	i = 0;
+	while (list[i] != NULL)
+	{
+		free(list[i]);
+		i++;
+	}
+	free(list);
+	return (NULL);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char	**split_str;
+	size_t	split_cnt;
+
+	if (s == NULL)
+		return (NULL);
+	split_cnt = ft_cnt(s, c);
+	split_str = (char **)malloc(sizeof(char *) * (split_cnt + 1));
+	if (split_str == NULL)
+		return (NULL);
+	split_str = ft_split_str(s, c, split_str, split_cnt);
+	return (split_str);
+}

@@ -5,14 +5,11 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 16:19:13 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/10 16:19:14 by yokitaga         ###   ########.fr       */
+/*   Created: 2022/10/19 19:50:53 by yokitaga          #+#    #+#             */
+/*   Updated: 2022/10/19 20:32:33 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-//#include <stdio.h>
-//#include <ctype.h>
 #include "libft.h"
 
 int	ft_isascii(int c)
@@ -22,23 +19,3 @@ int	ft_isascii(int c)
 	else
 		return (0);
 }
-
-/*
-int main(void)
-{
-    printf("result of ft_isalpha\n");
-    printf("a：%d\n", ft_isascii('a'));
-    printf("9：%d\n", ft_isascii('9'));
-    printf("アスキーコードの9：%d\n", ft_isascii(9));
-    printf("1234567：%d\n", ft_isascii(1234567));
-    printf("!：%d\n", ft_isascii('!'));
-    printf("====================\n");
-    printf("result of isalpha\n");
-    printf("a：%d\n", isascii('a'));
-    printf("9：%d\n", isascii('9'));
-    printf("アスキーコードの9：%d\n", isascii(9));
-    printf("1234567：%d\n", isascii(1234567));
-    printf("!：%d\n", isascii('!'));
-    return (0);
-}
-*/

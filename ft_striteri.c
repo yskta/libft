@@ -5,26 +5,23 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yokitaga <yokitaga@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/10 16:21:41 by yokitaga          #+#    #+#             */
-/*   Updated: 2022/10/10 16:59:10 by yokitaga         ###   ########.fr       */
+/*   Created: 2022/10/19 19:44:17 by yokitaga          #+#    #+#             */
+/*   Updated: 2022/10/19 20:38:53 by yokitaga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-引数として渡された文字列 *s の各文字に関数 f を適用し、そのインデックスを第1引数として渡します。各文字はポインタとしてfに渡され、必要に応じて修正されます。
-*/
 #include "libft.h"
 
-void ft_striteri(char *s, void (*f)(unsigned int, char*))
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-    size_t  i;
-    if (s != NULL && f != NULL)
-    {
-        i = 0;
-        while (s[i] != '\0')
-        {
-            f(i, &s[i]);
-            i++;
-        }
-    }
+	size_t	i;
+
+	if (s == NULL || f == NULL)
+		return ;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
